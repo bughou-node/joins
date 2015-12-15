@@ -1,0 +1,21 @@
+{
+  "name": "joins",
+  "version": "0.0.2",
+  "description": "left join, inner join",
+  "main": "joins.js",
+  "homepage": "https://github.com/bughou-node/joins",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/bughou-node/joins.git"
+  },
+  "keywords": [
+    "left",
+    "inner",
+    "join"
+  ],
+  "author": "bughou@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "deep-equal": "^1.0.1"
+  }
+}
