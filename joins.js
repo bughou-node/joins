@@ -38,12 +38,17 @@ function join (left, right, path, flag) {
 }
 
 function get_keys (array, path) {
-  var keys = [ ];
-  if (path) path = path.split('.');
+  var cons = path.constructor;
+  if (cons === String) path = path.split('.');
+  else if (cons === Number) path = [ p ];
+  else throw 'path can only be integer or string';
+
+  var hash = [ ];
   for (var i = 0, l = array.length; i < l; i++) {
-    keys.push(get(array[i], path));
+    var k = get(array[i], path);
+    if (k !== undefined && k !== null) hash[k] = 1;
   }
-  return keys;
+  return Object.keys(hash);
 }
 
 function merge (left, right, path) {

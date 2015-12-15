@@ -222,6 +222,26 @@ describe('inner_join', function() {
   });
 });
 
+describe('get_keys', function () {
+  it('should work', function () {
+    var a = [
+      { k1: { k2: { '': 5 } } },
+      { k1: { k2: { k3: 1 } } },
+      {                       k2: { k2: { k3: 9 } } },
+      { k1: { k2: { k3: 3 } } },
+      { k1: { k2: {       } } },
+      { k1: {               } },
+      { k1: { k2: { k3: 2 } } },
+      { k1: { k2: { k3: 2 } } },
+      { },
+    ];
+    var expect = [ '1', '2', '3' ];
+    var result = get_keys(a, 'k1.k2.k3');
+
+    assert(equal(result, expect));
+  });
+});
+
 function debug(left, right, expect, result) {
   if (!process.env.debug) return;
   console.log(left);
