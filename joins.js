@@ -14,6 +14,7 @@ function inner_join (left, right, path) {
 function join (left, right, path, flag) {
   if (left.constructor !== Array) throw 'left must be an Array';
   if (right.constructor !== Array) throw 'right must be an Array';
+  if (left.length === 0 || right.length === 0) return left;
   if (
     !path || path.right === undefined || path.right === null
   ) throw 'path.right is required';
